@@ -7,7 +7,8 @@
 3. [Installation Steps](#installation-steps)
 4. [Data Generation](#data-generation)
 5. [Elasticsearch Operations](#elasticsearch-operations)
-6. [Troubleshooting](#troubleshooting)
+6. [Pagination](#pagination)
+7. [Troubleshooting](#troubleshooting)
 
 ## System Architecture
 
@@ -131,6 +132,18 @@ This will install all required dependencies including:
 npm start
 ```
 
+## Pagination
+
+The search functionality now includes a pagination feature to improve both usability and performance. In simple terms, instead of showing all results at once, the system displays a limited number of results per page (for example, 10 results per page).
+
+### Key Points:
+
+- **Limited Results Per Page:** Only a set number of search results appear on each page, preventing information overload.
+- **Navigation Controls:** Use the provided buttons, such as "First", "Previous", "Next", and "Last", along with numbered page links to move between result pages.
+- **Page Size Selection:** A dropdown menu lets you choose how many results to display per page (options include 5, 10, 20, or 50).
+
+This feature makes it easier to browse through results and helps the system load data faster by only fetching a subset of the total results at a time.
+
 ## Troubleshooting
 
 ### Common Issues and Solutions
@@ -167,10 +180,22 @@ docker-compose up -d
 
 # Stop services
 docker-compose down
-
-
-
 ```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **CORS Errors**
+
+   - Ensure Elasticsearch CORS settings are properly configured
+   - Check the proxy settings in `package.json`
+
+2. **Search Not Working**
+
+   - Verify Elasticsearch is running
+   - Check if the index exists and contains data
+   - Inspect browser console for errors
 
 ## Additional Resources
 
